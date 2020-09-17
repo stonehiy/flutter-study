@@ -5,6 +5,8 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/entity/entity.dart';
+import 'package:flutter_app/http/http_dio.dart';
+import 'package:flutter_app/http/http_dio2.dart';
 
 class ListPage extends StatefulWidget {
   @override
@@ -23,7 +25,8 @@ class _ListPageState extends State<ListPage> {
   @override
   void initState() {
     print("------initState------");
-    _timerStart();
+    // _timerStart();
+    _getHttpData();
     super.initState();
   }
 
@@ -77,6 +80,7 @@ class _ListPageState extends State<ListPage> {
   void dispose() {
     print('--------dispose---------');
     _timerCancel();
+
     super.dispose();
   }
 
@@ -93,7 +97,7 @@ class _ListPageState extends State<ListPage> {
     return Column(
       children: <Widget>[
         AspectRatio(
-          aspectRatio: 16/9,
+          aspectRatio: 16 / 9,
           child: Image.network(
             data.url,
             // width: window.physicalSize.width,
@@ -140,5 +144,20 @@ class _ListPageState extends State<ListPage> {
 
   void _timerCancel() {
     _timer?.cancel();
+  }
+
+  void _getHttpData() {
+    String url = "https://api.apiopen.top/getJoke?page=1&count=2&type=video";
+    // HttpManager.getInstance().get(url);
+    HttpUtil().get(url).then((resp) {
+      print(resp);
+
+    });
+    // httpUtil.post("getServerTimestamp", getRequestData())
+    //     .then((resp) {
+    //   //这里可以做想要的转换，也可以什么都不做
+    //   HomePageResp result = new HomePageResp.fromJson(resp);
+    //   return result;
+    // });
   }
 }

@@ -5,8 +5,8 @@ import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 class HttpManager{
   //一个人工智能回答的免费API
   final String _BASEURL = 'http://api.qingyunke.com/api.php';
-  final int _CONNECTTIMEOUT = 5000;
-  final int _RECEIVETIMEOUT = 3000;
+  final int _CONNECTTIMEOUT = 30000;
+  final int _RECEIVETIMEOUT = 30000;
 
   //单例模式
   static HttpManager _instance;
