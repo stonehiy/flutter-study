@@ -4,14 +4,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/entity/entity.dart';
 
-class ListPage extends StatefulWidget {
+class GridPage extends StatefulWidget {
   @override
-  _ListPageState createState() {
-    return _ListPageState();
+  _GridPageState createState() {
+    return _GridPageState();
   }
 }
 
-class _ListPageState extends State<ListPage> {
+class _GridPageState extends State<GridPage> {
   List<ListData> _listData = List();
   Timer _timer;
 
@@ -39,7 +39,7 @@ class _ListPageState extends State<ListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("list page"),
+        title: Text("grid page"),
       ),
       body: Center(
         child: Container(
@@ -49,7 +49,7 @@ class _ListPageState extends State<ListPage> {
           decoration: BoxDecoration(
             color: Colors.white,
           ),
-          child: _listView(),
+          child: _gridView(),
         ),
       ),
     );
@@ -57,7 +57,7 @@ class _ListPageState extends State<ListPage> {
 
   ///这是一个不常用到的生命周期方法，当父组件需要重新绘制时才会调用；
   @override
-  void didUpdateWidget(ListPage oldWidget) {
+  void didUpdateWidget(GridPage oldWidget) {
     print('-------didUpdateWidget-----');
     super.didUpdateWidget(oldWidget);
   }
@@ -78,37 +78,51 @@ class _ListPageState extends State<ListPage> {
     super.dispose();
   }
 
-  Widget _listView() {
-    return ListView.builder(
+  Widget _gridView() {
+    return GridView.builder(
+        scrollDirection: Axis.vertical,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          mainAxisSpacing: 2.0,
+          crossAxisSpacing: 5.0,
+          childAspectRatio:1.3,
+        ),
+        // gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+        //   maxCrossAxisExtent: 290.0,
+        //   mainAxisSpacing: 2.0,
+        //   crossAxisSpacing: 5.0,
+        // ),
         itemCount: this._listData.length,
         itemBuilder: (BuildContext context, int index) {
-          return _listTile(context, index);
+          return _gridViewItem(context, index);
         });
   }
 
-  Widget _listTile(BuildContext context, int index) {
+  Widget _gridViewItem(BuildContext context, int index) {
     var data = this._listData.elementAt(index);
+    return _item(data);
+  }
+
+  Widget _item(ListData data) {
     return Column(
       children: <Widget>[
         Container(
           alignment: Alignment.center,
           width: double.infinity,
           height: 100,
-          color: Colors.red,
+          decoration: BoxDecoration(
+            color: Colors.red,
+          ),
           child: Text(data.title),
         ),
         Container(
           alignment: Alignment.center,
           width: double.infinity,
           height: 30,
-          color: Colors.blue,
+          decoration: BoxDecoration(
+            color: Colors.blue,
+          ),
           child: Text(data.content),
-        ),
-        Container(
-          alignment: Alignment.center,
-          width: double.infinity,
-          height: 2,
-          color: Colors.white,
         ),
       ],
     );
@@ -125,7 +139,7 @@ class _ListPageState extends State<ListPage> {
       print('_count = $_count');
       //timer.cancel(); // 取消定时器
       setState(() {
-        var data = ListData(title: "titile$date");
+        var data = ListData();
         this._listData.add(data);
       });
     });
