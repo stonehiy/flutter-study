@@ -83,9 +83,9 @@ class _GridPageState extends State<GridPage> {
         scrollDirection: Axis.vertical,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          mainAxisSpacing: 2.0,
+          // mainAxisSpacing: 2.0,
           crossAxisSpacing: 5.0,
-          childAspectRatio:1.3,
+          childAspectRatio:1.3, //子组件宽高比例
         ),
         // gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
         //   maxCrossAxisExtent: 290.0,
