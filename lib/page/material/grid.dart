@@ -85,7 +85,7 @@ class _GridPageState extends State<GridPage> {
         scrollDirection: Axis.vertical,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          // mainAxisSpacing: 2.0,
+          mainAxisSpacing: 5.0,
           crossAxisSpacing: 5.0,
           childAspectRatio: 1.0, //子组件宽高比例
         ),
@@ -108,27 +108,20 @@ class _GridPageState extends State<GridPage> {
   Widget _item(ListData data) {
     return Column(
       children: <Widget>[
-        Container(
-          alignment: Alignment.center,
-          width: window.physicalSize.width / 2,
-          height: 170.0,
-          decoration: BoxDecoration(
-            color: Colors.red,
-          ),
+        AspectRatio(
+          aspectRatio: 16/16,
           child: Image.network(
             data.url,
-            width: window.physicalSize.width / 2,
-            height: window.physicalSize.width / 2,
+            // width: window.physicalSize.width,
+            // height: 100,
             fit: BoxFit.cover,
           ),
         ),
         // Container(
         //   alignment: Alignment.center,
-        //   width: window.physicalSize.width / 2,
-        //   height: 0,
-        //   decoration: BoxDecoration(
-        //     color: Colors.blue,
-        //   ),
+        //   width: window.physicalSize.width,
+        //   height: 30,
+        //   color: Colors.blue,
         //   child: Text(data.content),
         // ),
       ],

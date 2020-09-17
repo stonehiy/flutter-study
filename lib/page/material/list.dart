@@ -92,15 +92,12 @@ class _ListPageState extends State<ListPage> {
     var data = this._listData.elementAt(index);
     return Column(
       children: <Widget>[
-        Container(
-          alignment: Alignment.center,
-          width: double.infinity,
-          height: 100,
-          color: Colors.red,
+        AspectRatio(
+          aspectRatio: 16/9,
           child: Image.network(
             data.url,
-            width: window.physicalSize.width,
-            height: 100,
+            // width: window.physicalSize.width,
+            // height: 100,
             fit: BoxFit.cover,
           ),
         ),
