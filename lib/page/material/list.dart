@@ -122,13 +122,6 @@ class _ListPageState extends State<ListPage> {
   }
 
   void _timerStart() {
-    List<String> _listImage = [
-      "http://pic1.win4000.com/wallpaper/2020-09-11/5f5b439f4219d.jpg",
-      "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1600340965420&di=bb7a4fe6449a72fb68417ce792571e81&imgtype=0&src=http%3A%2F%2F01.minipic.eastday.com%2F20170414%2F20170414173232_4a717c3f9a94e5376cedc0b40b6e660b_6.jpeg",
-      "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1600340965420&di=70b8cd0df2fc9c7bfb7458bcd3217d1f&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fpic%2Ff%2F33%2F648011013.jpg",
-      "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1600340965420&di=dd13b420de5b446da2dd3266fedffe0b&imgtype=0&src=http%3A%2F%2F00.minipic.eastday.com%2F20170511%2F20170511132314_6cab43df10415723a8f3bdd9dc5364ed_8.jpeg",
-      "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1600340965419&di=be0e14d8f964e40921f60af12c19b7de&imgtype=0&src=http%3A%2F%2F01.minipic.eastday.com%2F20170113%2F20170113174441_4a700387e67e0119e06a111ee2292bf7_10.jpeg",
-    ];
     int _count = 0;
     const timeout = const Duration(seconds: 1);
     _timer = Timer.periodic(timeout, (timer) {
@@ -139,10 +132,10 @@ class _ListPageState extends State<ListPage> {
       print('_count = $_count');
       //timer.cancel(); // 取消定时器
       var random = Random();
-      int i = random.nextInt(_listImage.length);
+      int i = random.nextInt(listImageGirl.length);
       print('i = $i');
       setState(() {
-        var data = ListData(url: _listImage[i], content: "content = $date");
+        var data = ListData(url: listImageGirl[i], content: "content = $date");
         this._listData.add(data);
       });
     });
