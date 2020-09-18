@@ -130,7 +130,7 @@ class _GridPageState extends State<GridPage> {
 
   void _timerStart() {
     int _count = 0;
-    const timeout = const Duration(seconds: 1);
+    const timeout = const Duration(milliseconds: 100);
     _timer = Timer.periodic(timeout, (timer) {
       //1s 回调一次
       _count++;

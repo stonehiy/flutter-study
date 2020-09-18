@@ -25,7 +25,7 @@ class _ListPageState extends State<ListPage> {
   @override
   void initState() {
     print("------initState------");
-    // _timerStart();
+    _timerStart();
     _getHttpData();
     super.initState();
   }
@@ -124,7 +124,7 @@ class _ListPageState extends State<ListPage> {
 
   void _timerStart() {
     int _count = 0;
-    const timeout = const Duration(seconds: 1);
+    const timeout = const Duration(milliseconds: 100);
     _timer = Timer.periodic(timeout, (timer) {
       //1s 回调一次
       _count++;
