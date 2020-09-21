@@ -5,6 +5,8 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/entity/entity.dart';
+import 'package:flutter_app/entity/new.dart';
+import 'package:flutter_app/entity/result.dart';
 import 'package:flutter_app/http/http_dio.dart';
 import 'package:flutter_app/http/http_dio2.dart';
 
@@ -25,7 +27,7 @@ class _ListPageState extends State<ListPage> {
   @override
   void initState() {
     print("------initState------");
-    _timerStart();
+    // _timerStart();
     _getHttpData();
     super.initState();
   }
@@ -150,8 +152,22 @@ class _ListPageState extends State<ListPage> {
     String url = "https://api.apiopen.top/getJoke?page=1&count=2&type=video";
     // HttpManager.getInstance().get(url);
     HttpUtil().get(url).then((resp) {
-      print(resp);
+      // print(resp);
+      Result result = Result.fromJson(resp);
+      dynamic data = result.result;
+      List<New> list = List<New>();
+      if (data is List) {
+        data.forEach((m) {
+          New n = New.fromJson(m);
 
+          // list.add(n);
+          setState(() {
+            _listData.add(ListData(url: n.thumbnail));
+          });
+        });
+
+
+      }
     });
     // httpUtil.post("getServerTimestamp", getRequestData())
     //     .then((resp) {

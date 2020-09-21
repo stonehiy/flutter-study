@@ -1,5 +1,6 @@
-List<String> listImageGirl = [
+import 'package:json_annotation/json_annotation.dart';
 
+List<String> listImageGirl = [
   "http://pic1.win4000.com/wallpaper/2020-09-11/5f5b439f4219d.jpg",
   "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1600340965420&di=bb7a4fe6449a72fb68417ce792571e81&imgtype=0&src=http%3A%2F%2F01.minipic.eastday.com%2F20170414%2F20170414173232_4a717c3f9a94e5376cedc0b40b6e660b_6.jpeg",
   "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1600340965420&di=70b8cd0df2fc9c7bfb7458bcd3217d1f&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fpic%2Ff%2F33%2F648011013.jpg",
@@ -18,7 +19,6 @@ List<String> listImageGirl = [
   "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1600343144276&di=60bbd3888fe364eba4e6aed36f325554&imgtype=0&src=http%3A%2F%2F01.minipic.eastday.com%2F20170207%2F20170207131327_58fabff66f77a2730d1344281f6891ed_1.jpeg",
   "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1600343144272&di=42a04f8ad7236bb9ca1332482d61c464&imgtype=0&src=http%3A%2F%2Fattachments.gfan.net.cn%2Fforum%2Fattachments2%2F201301%2F27%2F2025395o1m44co41oxgk9d.jpg",
   "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1600343262347&di=ef4d8eaca99ce1bc38252780ac68a24a&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fpic%2F4%2F33%2Fb120775820.jpg",
-
 ];
 
 class ListData {
@@ -34,3 +34,5 @@ class ListData {
           "http://pic1.win4000.com/wallpaper/2020-09-11/5f5b439f4219d.jpg",
       this.time = "time"});
 }
+
+

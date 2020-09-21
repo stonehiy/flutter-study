@@ -35,6 +35,7 @@ class HttpUtil {
         receiveTimeout: RECEIVE_TIMEOUT,
         baseUrl: HOST);
     _dio = new Dio(orgOption);
+    addInterceptor(LogInterceptor());
   }
 
   //拦截器添加
